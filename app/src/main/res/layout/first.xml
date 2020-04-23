@@ -1,0 +1,49 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@mipmap/capd_icon_round"
+        android:layout_gravity="center"
+        ></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom">
+
+    <Button
+        android:id="@+id/open_door"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:text="문열기"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        ></Button>
+
+    <Button
+        android:id="@+id/open_log"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:text="로그"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        ></Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>
