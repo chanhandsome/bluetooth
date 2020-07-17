@@ -39,7 +39,7 @@ public class otp_compare extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "문이 열렸습니다.", Toast.LENGTH_LONG).show();
             checkdata = "";
         } else if (checkdata == "2") {
-            Toast.makeText(getApplicationContext(), "암호 5회 오류입니다. 비밀번호가 초기화됩니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "암호 3회 오류입니다. 비밀번호가 초기화됩니다.", Toast.LENGTH_LONG).show();
             checkdata = "";
         }
     }

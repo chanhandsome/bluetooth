@@ -66,6 +66,7 @@ public class bluetooth_open extends AppCompatActivity {
     Button mBtnSendData;
     String toss = "";
     String checkdata = "";
+    String readMessage = "";
 
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
@@ -82,7 +83,7 @@ public class bluetooth_open extends AppCompatActivity {
     //스마트폰-아두이노 간 연결 코드
     final static UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    Button goback;
+//    Button goback;
     Button otp_enter;
     TextView otp_return;
     String password = "";
@@ -128,7 +129,7 @@ public class bluetooth_open extends AppCompatActivity {
         mBtnSendData = (Button) findViewById(R.id.btnSendData);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
+/*
         //뒤로가기
         goback = (Button) findViewById(R.id.goback);
         goback.setClickable(true);
@@ -140,7 +141,7 @@ public class bluetooth_open extends AppCompatActivity {
                 startActivity(back);
             }
         });
-
+*/
         mBtnBluetoothOn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,9 +179,8 @@ public class bluetooth_open extends AppCompatActivity {
                 Intent mBtnSendData = new Intent(bluetooth_open.this, otp_compare.class);
                 mBtnSendData.putExtra("mBtnSendData", otp_saveinput);
 
-                for(int i=0; i<5; i++) {
                     Toast.makeText(getApplicationContext(), "< " + otp_ran + " >의 값을 입력해 주세요", Toast.LENGTH_LONG).show();
-                }
+
 
 
                 if(mThreadConnectedBluetooth != null) {
@@ -197,30 +197,37 @@ public class bluetooth_open extends AppCompatActivity {
         mBluetoothHandler = new Handler() {
             public void handleMessage(android.os.Message msg) {
                 if (msg.what == BT_MESSAGE_READ) {
-                    String readMessage = "";
+
+                   //  mTvReceiveData.setText(null);
+
                     try {
                         readMessage = new String((byte[]) msg.obj, "UTF-8");
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    mTvReceiveData.setText(readMessage);
+                    //  mTvReceiveData.setText(checkdata);
 
 
 
-                    checkdata += readMessage.trim();
+                    checkdata = readMessage.trim();
 
                     if(checkdata.equals("open")){
                         Toast.makeText(getApplicationContext(), "문이 열렸습니다.", Toast.LENGTH_LONG).show();
-                        checkdata = "";
+                        checkdata = null;
                     }
                     else if(checkdata.equals("error")){
-                        Toast.makeText(getApplicationContext(), "암호 5회 오류입니다. OTP를 다시 발급받아 주세요", Toast.LENGTH_LONG).show();
-                        checkdata = "";
+                        Toast.makeText(getApplicationContext(), "암호 3회 오류입니다. OTP를 다시 발급받아 주세요", Toast.LENGTH_LONG).show();
+                        checkdata = null;
                     }
-
+                    else if(checkdata.equals("close")){
+                        Toast.makeText(getApplicationContext(), "문이 닫혔습니다.", Toast.LENGTH_LONG).show();
+                        checkdata = null;
+                    }
+                    readMessage = null;
 
                 }
+
             }
         };
 

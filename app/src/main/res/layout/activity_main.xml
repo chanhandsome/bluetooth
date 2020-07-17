@@ -12,6 +12,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="60dp"
         android:backgroundTint="@android:color/white"
+
         ></ImageView>
 
 
@@ -20,8 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="      "
+        android:text="     "
         android:textColor="@android:color/holo_red_dark"
+        android:gravity="center"
         />
 
 
@@ -65,13 +67,6 @@
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/goback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="뒤로가기"
-        ></Button>
 
     <TextView
         android:id="@+id/tvBluetoothStatus"
