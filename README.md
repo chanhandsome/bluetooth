@@ -22,7 +22,8 @@ function 기능
 errors
 문제 발생
 
-1. Application closes whenever back to last xml
+1. Application closes whenever returning to previous xml
 1. 이전 xml로 돌아갈 때 마다 어플이 꺼짐
 
-2. 
+2. FCM related issue
+2. FCM관련 이슈
