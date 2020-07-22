@@ -46,17 +46,6 @@ import java.util.Random;
 public class bluetooth_open extends AppCompatActivity {
 
 
-    @Override
-    protected void onStop () {
-        super.onStop();
-        try {
-            socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     TextView mTvBluetoothStatus;
     TextView mTvReceiveData;
     TextView mTvSendData;
