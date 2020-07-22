@@ -24,6 +24,7 @@ errors
 
 1. Application closes whenever returning to previous xml
 1. 이전 xml로 돌아갈 때 마다 어플이 꺼짐
+-> 0722(resolved)
 
 2. FCM related issue
 2. FCM관련 이슈
